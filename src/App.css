@@ -1,38 +1,31 @@
-.App {
-  text-align: center;
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700;800&display=swap');
+:root {
+   --primary-color: #007AF3;
+}
+div.content{
+    float: right;
+    width: 25em;
+    margin-top: 5em;
+    margin-right: 2em;
+    text-align: center;
+  
+}
+.petsiRound{
+    font-weight: bold;
+    color: black;
+    font-size: 3.5em;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.si{
+    font-size: .7em;
+    color:var(--primary-color)
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.image{
+    float: left;
+    width: 60%;
+    height: 100%;
+    margin-top: 3em;
+    margin-bottom: 3em;
+    border-radius: 50%;
 }
