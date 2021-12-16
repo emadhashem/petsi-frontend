@@ -1,0 +1,53 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700;800&display=swap');
+:root {
+   --primary-color: #007AF3;
+}
+
+body {
+   background-color: #f2f2f2;
+   margin: 0;
+   font-family: 'Poppins';
+}
+.emailInput{
+    display: block;
+    margin-top: .5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: .5px;
+    border-radius: 1em;
+    height: 3em;
+    width: 20em;   
+}
+.passInput{
+    display: block;
+    margin-top: .5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-width: .5px;
+    border-radius: 1em;
+    height: 3em;
+    width: 20em;      
+}
+.lableandemail{
+    margin-top: 3em;
+}
+.lableandpass{
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+}
+.signButton{
+    margin-bottom: 1em;
+    color: white;
+    font-size: 1.4em;
+    width: 5.5em;
+    height: 2.5em;
+    background-color: var(--primary-color);
+    border: 5px solid var(--primary-color);
+    border-radius: 5em;
+}
+.passLable{
+    font-size: 1.2em;
+}
+.emailLable{
+    font-size: 1.2em;
+}
