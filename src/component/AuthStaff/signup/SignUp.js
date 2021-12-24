@@ -9,7 +9,9 @@ function SignUp() {
         
     }
     return (
+        
         <div>
+            
             <input type = "text" value = {userName}
                 onChange = {(evnt) => setuserName(evnt.target.value) }
             />

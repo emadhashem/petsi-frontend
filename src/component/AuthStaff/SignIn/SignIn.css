@@ -2,7 +2,18 @@
 :root {
    --primary-color: #007AF3;
 }
-
+.Maincont{
+    background-color: #f8cfcf;
+    width: 100%;
+    height: 100vh;
+}
+div.cont{
+    float: right;
+    margin-top: 5em;
+    margin-right: 5%;
+    margin-left: 0;
+    text-align: center;
+}
 .emailInput{
     display: block;
     margin-top: .5em;
@@ -40,9 +51,62 @@
     border: 5px solid var(--primary-color);
     border-radius: 5em;
 }
+.regButton{
+    margin-bottom: 1em;
+    color: white;
+    font-size: 1.4em;
+    width: 5.5em;
+    height: 2.5em;
+    background-color: var(--primary-color);
+    border: 5px solid var(--primary-color);
+    border-radius: 5em;
+}
 .passLable{
     font-size: 1.2em;
+    font-weight: 480;
 }
 .emailLable{
     font-size: 1.2em;
+    font-weight: 480;
+}
+.petsiRound{
+    font-weight: bold;
+    color: black;
+    font-size: 3.5em;
+}
+
+.si{
+    font-size: .7em;
+    color:var(--primary-color)
+}
+.imageBox{   
+    float: left;
+    display: grid;  
+    width: 60%;
+    margin-top: auto;
+    margin-bottom: auto;
+    
+}
+.image{
+    width: 100%; 
+    border-radius: 0px 50px 50px 0px;
+}
+.ourLable{
+    margin-bottom: 1.5em;
+    margin-right: 2em;
+    margin-top: 1.5em;
+    text-align: center;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: gray;
+    letter-spacing: .3em;
+    
+}
+   
+iframe {
+    width: 100%;
+    height: 300px;
+}
+@media only screen and (min-width: 800px) {
+
 }

@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import './SignIn.css';
-import theImage from '../../../dog.jpg'
+import image from './pets.jpg';
 class SignIn extends Component {
 
 
@@ -16,33 +16,58 @@ class SignIn extends Component {
     }
 
     //handel the submit
-    handelSubmit = (e) => {
+    handleSubmit = (e) => {
         //to prevent autoload
         e.preventDefault();
     }
 
+    handleonClickSign=(e)=>{
+        window.open("/home","_blank");
+    }
+    
     render() {
 
         return (
-            <div className="cont">
-                <div className="petsiRound">
-                    Pet<span className="si">Si</span>
-                </div>
-                <form onSubmit={this.handelSubmit} className="sigin-form">
-                    <div className="passAndemail">
-                        <div className="lableandemail">
-                            <label className="emailLable">E-mail</label>
-                            <input className="emailInput" type="email" name="email" placeholder="Enter your email..." required onChange={this.handelChange} ></input>
-                        </div>
-                        <div className="lableandpass">
-                            <label className="passLable">Password</label>
-                            <input className="passInput" type="password" name="password" placeholder="Enter your password..." required onChange={this.handelChange} ></input>
-                        </div>
-                        {  /*Handing the onClick to open the Home Page  */}
+            <div className="Maincont">
+                <div className="cont">
+                    <div className="petsiRound">
+                        Pet<span className="si">Si</span>
                     </div>
 
-                    <input className="signButton" onSubmit={this.handeilSubmit} type="submit" value="Sign in"></input>
-                </form>
+                    <form onSubmit={this.handelSubmit} className="sigin-form">
+
+                        <div className="passAndemail">
+                            <div className="lableandemail">
+                                <label className="emailLable">E-mail</label>
+                                <input className="emailInput" type="email" name="email" placeholder="Enter your email..."  onChange={this.handelChange} ></input>
+                            </div>
+
+                            <div className="lableandpass">
+                                <label className="passLable">Password</label>
+                                <input className="passInput" type="password" name="password" placeholder="Enter your password..."  onChange={this.handelChange} ></input>
+                            </div>
+                            
+                        </div>
+
+                        <div> 
+                            <input className="signButton" onSubmit={this.handleSubmit} type="submit" value="Sign in" onClick={this.handleonClickSign}/>
+                        </div>
+
+                        <div className="Rigester">
+                            <input className="regButton" onSubmit={this.handleSubmit} type="submit" value="Register" />
+                        </div>
+
+                        <div className="forgetPass">
+                            <a href="/auth/forgetPass">Forget Password</a>
+                        </div>
+
+                    </form>
+               
+                </div>
+                <div className="imageBox">
+                    <div className="ourLable">it's where is your peti </div>
+                    <img src={image} className='image'/>
+                </div>
             </div>
 
         )
