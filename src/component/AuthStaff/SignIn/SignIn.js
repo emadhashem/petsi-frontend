@@ -1,30 +1,43 @@
-import React, { Component, useState } from "react";
+import React, { Component, useEffect, useState } from "react";
 import './SignIn.css';
 import image from './pets.jpg';
-const SignIn = () => {
+import {useHistory} from 'react-router-dom'
+import { loginUser } from "../../../services/auth";
+import { connect, useDispatch } from "react-redux";
+import {setUserEmail, setUserId, setUserName, setUserToken, setUserImg} from '../../../redux/actions/userActions'
 
+const SignIn = ({user}) => {
+    useEffect(() => {
+        if(user.id) {
+            go.push('/home')
+            return
+        }
+    }, [])
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
     //handling the onChange 
-    const handelChange = (e) => {
-        const { name, value } = e.target;
-        this.setState({ [name]: value })
-
+    const go = useHistory()
+    const dispatch = useDispatch()
+    function handleAllDispatches(data) {
+        
+        dispatch(setUserEmail(data.email))
+        dispatch(setUserName(data.userName))
+        dispatch(setUserId(data._id))
+        dispatch(setUserImg(data.img))
+        dispatch(setUserToken(data.resToken))
+        
     }
+    const login = async () => {
 
-    //handel the submit
-    const handleSubmit = (e) => {
-        //to prevent autoload
-        e.preventDefault();
+        const res = await loginUser(email, password, handleError)
+        if(res) {
+            handleAllDispatches(res)
+            go.push('/home')
+        }
     }
-
-    const handleonClickSign = (e) => {
-        e.preventDefault()
-        window.open("/home", "_self");
+    function handleError(message) {
+        alert(message)
     }
-
-
-
     return (
         <div className="Maincont">
             <div className="cont">
@@ -32,7 +45,7 @@ const SignIn = () => {
                     Pet<span className="si">Si</span>
                 </div>
 
-                <form onSubmit={this.handelSubmit} className="sigin-form">
+                <form className="sigin-form">
 
                     <div className="passAndemail">
                         <div className="lableandemail">
@@ -41,7 +54,7 @@ const SignIn = () => {
                                 onChange={evnt => setemail(evnt.target.value)}
                                 className="emailInput" type="email"
                                 name="email" placeholder="Enter your email..."
-                            ></input>
+                            />
                         </div>
 
                         <div className="lableandpass">
@@ -51,17 +64,21 @@ const SignIn = () => {
                                 onChange={evnt => setpassword(evnt.target.value)}
                                 className="passInput" type="password"
                                 name="password" placeholder="Enter your password..."
-                            ></input>
+                            />
                         </div>
 
                     </div>
 
-                    <div>
-                        <input className="signButton"  type="submit" value="Sign in" onClick={handleonClickSign} />
-                    </div>
+                    
+                        <input className="signButton"  value="Sign in" 
+                            onClick={login}
+                         />
+                    
 
                     <div className="Rigester">
-                        <input className="regButton" type="submit" value="Register" />
+                        <input className="regButton" value="Register" 
+                        onClick={() => go.push('/auth/signup')}
+                        />
                     </div>
 
                     <div className="forgetPass">
@@ -80,5 +97,8 @@ const SignIn = () => {
     )
 
 }
-export default SignIn;
+const mapStateToProps = ({user}) => ({
+    user
+})
+export default connect(mapStateToProps)(SignIn);
 

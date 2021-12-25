@@ -1,5 +1,6 @@
 import * as userTypes from '../types'
-export const setIUserName = (name) => ({
+
+export const setUserName = (name) => ({
     type : userTypes.SET_USER_NAME,
     name
 })

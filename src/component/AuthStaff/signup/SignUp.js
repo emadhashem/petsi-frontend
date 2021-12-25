@@ -1,9 +1,16 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import dogImg from '../../../imgages/dog.jpg'
 import { createNewUser } from '../../../services/auth'
 import './signupStyles.css'
-function SignUp() {
+function SignUp({user}) {
+    useEffect(() => {
+        if (user.id) {
+            go.push('/home')
+            return
+        }
+    }, [])
     const [userName, setuserName] = useState('')
     const [password, setpassword] = useState('')
     const [email, setemail] = useState('')
@@ -11,14 +18,12 @@ function SignUp() {
     const go = useHistory()
     async function handleSignUp() {
         const res = await createNewUser(userName, email, password, role, handleError)
-        if(res) {
+        if (res) {
             go.push('/auth/login')
-
         }
-
     }
     function handleError(msg) {
-        console.log(msg)
+        alert(msg)
     }
     return (
 
@@ -66,5 +71,7 @@ function SignUp() {
         </div>
     )
 }
-
-export default SignUp
+const mapStateToProps = ({user}) => ({
+    user
+})
+export default connect(mapStateToProps)(SignUp)
