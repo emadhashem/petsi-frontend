@@ -6,6 +6,9 @@
     background-color: #f8cfcf;
     width: 100%;
     height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
 }
 div.cont{
     float: right;
@@ -22,7 +25,9 @@ div.cont{
     border-width: .5px;
     border-radius: 1em;
     height: 3em;
-    width: 20em;   
+    width: 20em; 
+    padding: 5px; 
+    outline: none;
 }
 .passInput{
     display: block;
@@ -32,7 +37,9 @@ div.cont{
     border-width: .5px;
     border-radius: 1em;
     height: 3em;
-    width: 20em;      
+    width: 20em;   
+    padding: 5px; 
+    outline: none;   
 }
 .lableandemail{
     margin-top: 3em;
@@ -107,6 +114,8 @@ iframe {
     width: 100%;
     height: 300px;
 }
-@media only screen and (min-width: 800px) {
-
+@media only screen and (max-width: 800px) {
+    .imageBox {
+        display: none;
+    }
 }

@@ -1,0 +1,5 @@
+export const SET_USER_NAME = 'SET_USER_NAME'
+export const SET_USER_ID = 'SET_USER_ID'
+export const SET_USER_IMG = 'SET_USER_IMG'
+export const SET_USER_EMAIL = 'SET_USER_EMAIL'
+export const SET_USER_TOKEN = 'SET_USER_NAME'
