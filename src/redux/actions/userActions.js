@@ -22,3 +22,11 @@ export const setUserEmail = (email) => ({
     type : userTypes.SET_USER_EMAIL,
     email
 })
+export const setUserRole = (role) => ({
+    type : userTypes.SET_USER_ROLE,
+    role
+}) 
+export const setUserPhoneNumber = (phoneNumber) => ({
+    type : userTypes.SET_USER_PHONE_NUMBER,
+    phoneNumber
+})

@@ -1,4 +1,4 @@
-import React ,{Component} from 'react';
+import React, { Component } from 'react';
 import './App.css';
 import SignIn from './component/AuthStaff/SignIn/SignIn';
 import {
@@ -8,27 +8,32 @@ import {
 import Layout from './component/layout/body/Layout';
 import SignUp from './component/AuthStaff/signup/SignUp';
 import HomePage from './component/HomePage/HomePage';
+import Profile from './component/profile/Profile';
+import AdminPage from './component/adminpage/AdminPage';
 
 
 class App extends Component {
-  
-render(){
-  return (
-    <Layout>
+
+  render() {
+    return (
+
       <Router>
-        <div className="App">
+        <Layout>
           <Switch>
-            <Route path = "/auth/login" component={SignIn}/>
-            <Route exact path ="/home" component={HomePage} />
-            <Route path = "/auth/signup" component = {SignUp}/>
-            <Redirect to = "/auth/login" />
+            <Route path="/admin" component={AdminPage} />
+            <Route path="/auth/login" component={SignIn} />
+            <Route path="/auth/signup" component={SignUp} />
+            <Route exact path="/home" component={HomePage} />
+            <Route path="/home/profile/:profileId" component={Profile} />
+            
+            <Redirect to="/auth/login" />
           </Switch>
-        </div>
-      </Router>
-    </Layout>
-  )
-}
-  
+        </Layout>
+      </Router >
+
+    )
+  }
+
 }
 
 export default App;

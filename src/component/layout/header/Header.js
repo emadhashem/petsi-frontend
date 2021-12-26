@@ -1,13 +1,16 @@
 import React from 'react'
 import { connect, useDispatch } from 'react-redux'
 import './headerStyles.css'
-import SearchBar from './searchbar/SearchBar'
-import * as userActions from '../../../redux/actions/userActions'
 import { useHistory } from 'react-router-dom'
+import SearchBar from './searchbar/SearchBar'
+
+import * as userActions from '../../../redux/actions/userActions'
+
+
 function Header({user}) {
     const dispatch = useDispatch()
     const go = useHistory()
-    function logIut() {
+    function logOut() {
         handleAllNullDispatches()
         go.push('/auth/login')
     }
@@ -17,6 +20,7 @@ function Header({user}) {
         dispatch(userActions.setUserImg(null))
         dispatch(userActions.setUserName(null))
         dispatch(userActions.setUserToken(null))
+        dispatch(userActions.setUserRole(null))
     }
     return (
         <div className='header_container' >
@@ -25,8 +29,14 @@ function Header({user}) {
             </div>
             <SearchBar />
             {
-                (user.id) && <p onClick={logIut} className='logout_holder'> LOGOUT </p>
+                (user.id) && <p onClick={() => {
+                    go.push('/home/profile/'+user.id)
+                }} className='logout_holder'> {user.name} </p>
             }
+            {
+                (user.id) && <p onClick={logOut} className='logout_holder'> LOGOUT </p>
+            }
+            
         </div>
     )
 }

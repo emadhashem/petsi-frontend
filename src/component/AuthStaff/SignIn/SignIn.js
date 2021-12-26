@@ -4,8 +4,8 @@ import image from './pets.jpg';
 import {useHistory} from 'react-router-dom'
 import { loginUser } from "../../../services/auth";
 import { connect, useDispatch } from "react-redux";
-import {setUserEmail, setUserId, setUserName, setUserToken, setUserImg} from '../../../redux/actions/userActions'
-
+import {setUserEmail, setUserId, setUserName, setUserToken, setUserImg, setUserRole, setUserPhoneNumber} from '../../../redux/actions/userActions'
+import CircularProgress from '@mui/material/CircularProgress'
 const SignIn = ({user}) => {
     useEffect(() => {
         if(user.id) {
@@ -15,28 +15,34 @@ const SignIn = ({user}) => {
     }, [])
     const [email, setemail] = useState('')
     const [password, setpassword] = useState('')
+    const [laoding, setlaoding] = useState(false)
     //handling the onChange 
     const go = useHistory()
     const dispatch = useDispatch()
     function handleAllDispatches(data) {
-        
+        dispatch(setUserRole(data.role))
         dispatch(setUserEmail(data.email))
         dispatch(setUserName(data.userName))
         dispatch(setUserId(data._id))
         dispatch(setUserImg(data.img))
         dispatch(setUserToken(data.resToken))
         
+        dispatch(setUserPhoneNumber(data.phoneNumber))
+        
     }
     const login = async () => {
-
+        setlaoding(true)
         const res = await loginUser(email, password, handleError)
         if(res) {
             handleAllDispatches(res)
             go.push('/home')
         }
+        setlaoding(false)
     }
     function handleError(message) {
         alert(message)
+        setlaoding(false)
+
     }
     return (
         <div className="Maincont">
@@ -73,7 +79,11 @@ const SignIn = ({user}) => {
                         <input className="signButton"  value="Sign in" 
                             onClick={login}
                          />
-                    
+                        {
+                            (laoding) && <div className="progress_circle" >
+                                <CircularProgress />
+                            </div>
+                        }
 
                     <div className="Rigester">
                         <input className="regButton" value="Register" 
