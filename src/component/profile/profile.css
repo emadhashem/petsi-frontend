@@ -38,3 +38,24 @@
     background-color: blueviolet;
 
 }
+
+.adoptions_modal_conatiner {
+    width: 70%;
+    min-height: 100%;
+    background-color: red;
+    margin: auto;
+    border: 0;
+    outline: none;
+}
+
+.adoptions_body {
+    width: 80%;
+    margin: auto;
+    height: auto;
+}
+
+.adoption_content_container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+}

@@ -30,3 +30,23 @@ export async function getPostOfAdmin(lstPostId = "0", handleError) {
         handleError(ex.response)
     }
 }   
+
+const add_To_User_FromAdmin_api = prefixApi+'api/admin/add'
+export async function addToUserFromAdmin(newPost, handleError) {
+    try {
+        const res = await axios.post(add_To_User_FromAdmin_api, {post : newPost})
+        return res.data
+    } catch (ex) {
+        handleError(ex.response)
+    }
+}
+
+const delete_To_User_FromAdmin_api = prefixApi+'api/admin/delete'
+export async function deleteToUserFromAdmin(postId, handleError) {
+    try {
+        const res = await axios.post(delete_To_User_FromAdmin_api, {postId})
+        return res.data
+    } catch (ex) {
+        handleError(ex.response)
+    }
+}

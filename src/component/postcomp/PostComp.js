@@ -5,10 +5,15 @@ import { Avatar } from '@mui/material';
 import { getUserData } from '../../services/userdata';
 import { downloadImg } from '../../services/firebaseStorage';
 import './poststyles.css'
-function PostComp({ postData, onclick = f => f }) {
+import AdoptionReq from '../profile/adoptionReq/AdoptionReq';
+import { useHistory } from 'react-router-dom';
+function PostComp({ postData, onclick = f => f, onAccept, onReject, hideModifi = false,
+
+}) {
     const [ownerName, setownerName] = useState('')
     const [ownerImg, setownerImg] = useState('')
     const [petImg_, setpetImg_] = useState(null)
+
     useEffect(() => {
         (async () => {
             await getoneUsrData()
@@ -36,32 +41,38 @@ function PostComp({ postData, onclick = f => f }) {
 
         }
     }
+    const go = useHistory()
+    function handleGotoOthersProfiles() {
+
+        go.push('/home/profile/' + postData.owner)
+    }
     return (
         <div className='post_container' >
             <div className='owner_div' >
                 <div className='owner_edit'>
 
-                    <EditIcon />
+                    {(!hideModifi) && <EditIcon onClick={() => onAccept(postData)} />}
                 </div>
-                <div className='owner_info' >
-                <Avatar src={ownerImg} />
-                    <p>{ownerName}</p>
-                    
-                </div>
+                <AdoptionReq name={ownerName} img={ownerImg}
+                    onclick={handleGotoOthersProfiles} />
                 <div className='owner_delete' >
-                    <DeleteOutlineIcon />
+                    <DeleteOutlineIcon onClick={() => onReject(postData._id)} />
                 </div>
             </div>
-            <div className='text_div' >
+            <div className='text_div'
+             onClick={() => onclick(postData.adoptionRequests, postData._id)} >
                 {postData.text}
             </div>
-            {(petImg_) && <div className='img_div' >
+            {(petImg_) && <div className='img_div'
+                onClick={() => onclick(postData.adoptionRequests, postData._id)} >
                 <img className='petImg_' src={petImg_} />
             </div>}
             {
-                (postData.adoptionRequests) && (
-                    <div className='reqs_div' ></div>
-                )}
+
+                <div className='reqs_div' >
+
+                </div>
+            }
         </div>
     )
 }

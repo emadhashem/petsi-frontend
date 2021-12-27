@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
-import { getPostOfAdmin } from '../../services/postData'
+import { addToUserFromAdmin, deleteToUserFromAdmin, getPostOfAdmin } from '../../services/postData'
 import './adminstyles.css'
 import Button from '@mui/material/Button';
 import { getUserData } from '../../services/userdata'
@@ -51,7 +51,7 @@ export const AdminPage = ({ user }) => {
     async function get10posts(lstId = "0") {
         try {
             setloadingPosts(true)
-            const res = await getPostOfAdmin(lstId, (data) => alert(data) )
+            const res = await getPostOfAdmin(lstId, (data) => alert(data))
             setloadingPosts(false)
 
             return res
@@ -62,7 +62,51 @@ export const AdminPage = ({ user }) => {
         }
 
     }
+    async function addToUser(newPost) {
+        try {
+            const res = await addToUserFromAdmin(newPost,
+                (response) => alert(response.data))
+        } catch (error) {
 
+        }
+    }
+    async function removeToUser(postId) {
+        try {
+            const res = await deleteToUserFromAdmin(postId,
+                (response) => alert(response.data))
+        } catch (error) {
+
+        }
+    }
+    async function onAccept(postData) {
+        try {
+            const newPost = (({ _id, ...restOfObj }) => restOfObj)(postData)
+            setloadingPosts(true)
+            await removeToUser(postData._id)
+            await addToUser(newPost)
+            removeItemFromList(postData._id)
+            setloadingPosts(false)
+
+        } catch (error) {
+            setloadingPosts(false)
+
+        }
+    }
+    async function onReject(id) {
+        try {
+            setloadingPosts(true)
+            await removeToUser(id)
+            removeItemFromList(id)
+            setloadingPosts(false)
+        } catch (error) {
+            setloadingPosts(false)
+
+        }
+
+    }
+    function removeItemFromList(itemId) {
+        setposts(posts.filter(item => item._id != itemId))
+    }
     return (
         <div className='adminpage_container' >
             {
@@ -78,10 +122,13 @@ export const AdminPage = ({ user }) => {
                 (loadingPosts) && <CircularProgress />
             }
             <div className='posts_container' >
-                
+
                 {
                     posts.map(item => (
-                        <PostComp postData={item} key={item._id} />
+                        <PostComp
+                            onAccept={onAccept}
+                            onReject={onReject}
+                            postData={item} key={item._id} />
                     ))
                 }
                 {
