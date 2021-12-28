@@ -78,6 +78,16 @@ const HomePage = ({ user }) => {
                             hideModifi={true} hideDelete = {true} />
                     ))
                 }
+                {
+                    (!noMore) && <div>
+                        <p onClick={getPosts} >More Posts{noMore}</p>
+                    </div>
+                }
+                {
+                    (noMore) && <div>
+                        <p  >NO More new Posts{noMore}</p>
+                    </div>
+                }
             </div>
             <div className='right_div'></div>
         </div>

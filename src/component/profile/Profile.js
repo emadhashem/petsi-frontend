@@ -68,14 +68,14 @@ function Profile({ user }) {
         try {
             setloadGetPosts(true)
             if (posts.length == 0) {
-                const res = await getUserPosts(user.token, user.id, "0", handleError)
+                const res = await getUserPosts(user.token, profileId, "0", handleError)
                 if (res.length < 10) setnoMore(true)
                 setposts(arr => {
                     return [...arr, ...res]
                 })
             } else {
                 const lstId = posts[posts.length - 1]._id
-                const res = await getUserPosts(user.token, user.id, lstId, handleError)
+                const res = await getUserPosts(user.token, profileId, lstId, handleError)
                 if (res.length < 10) setnoMore(true)
                 setposts(arr => {
                     return [...arr, ...res]
@@ -132,36 +132,36 @@ function Profile({ user }) {
     function handleGotoOthersProfiles(id = "") {
         handleCloseTheModalOfAdoptions()
         go.push('/home/profile/' + id)
-        
+
     }
     async function deleteRequst() {
         try {
             const res = await deleteRequestForAdtion(curPostId, user.token, handleError)
-            if(res) {
+            if (res) {
                 alert('requst deleted')
-                
+
             }
             handleCloseTheModalOfAdoptions()
             window.location.reload()
 
         } catch (error) {
             handleCloseTheModalOfAdoptions()
-            
+
         }
     }
     async function addRequest() {
         try {
             const res = await addRequestForAdtion(curPostId, user.token, handleError)
-            if(res) {
+            if (res) {
                 alert('requst added')
-                
+
             }
             handleCloseTheModalOfAdoptions()
             window.location.reload()
-           
+
         } catch (error) {
             handleCloseTheModalOfAdoptions()
-            
+
         }
     }
     return (
@@ -180,7 +180,7 @@ function Profile({ user }) {
                             arrOfAdoptions.map(item => (
                                 <div className='adoption_content_container' >
                                     <AoptionReqToGetuserData id={item}
-                                    onclick={() => handleGotoOthersProfiles(item)} />
+                                        onclick={() => handleGotoOthersProfiles(item)} />
                                     {
                                         (item == user.id) && <div>
                                             <Button onClick={deleteRequst}>
@@ -196,11 +196,11 @@ function Profile({ user }) {
                         }
                     </div>
                     {
-                        (isMyProfile()) && <div className='bnts_ofreq' >
-                            
-                                <Button onClick={addRequest} >
-                                    ADD
-                                </Button>
+                        (!isMyProfile()) && <div className='bnts_ofreq' >
+
+                            <Button onClick={addRequest} >
+                                ADD
+                            </Button>
                         </div>
                     }
                 </div>
@@ -230,7 +230,9 @@ function Profile({ user }) {
                     posts.map(item => (
                         <PostComp
                             onclick={onOpenModalOdAdoption}
-                            hideModifi={true} onReject={deletePost_} postData={item} />
+                            hideModifi={true} onReject={deletePost_} postData={item}
+                            hideDelete={(isMyProfile() ? false : true)}
+                        />
                     ))
                 }
                 {
@@ -240,8 +242,8 @@ function Profile({ user }) {
                 }
                 {
                     (!noMore) && <div>
-                    <p onClick={handleGetPosts} > more  posts</p>
-                </div>
+                        <p onClick={handleGetPosts} > more  posts</p>
+                    </div>
                 }
             </div>
             <div className='right_div'></div>

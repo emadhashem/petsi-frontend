@@ -5,6 +5,9 @@ import { CircularProgress, Modal } from '@mui/material'
 import { downloadImg } from '../../../services/firebaseStorage'
 import AdoptionReq from '../../profile/adoptionReq/AdoptionReq'
 import { useHistory } from 'react-router-dom'
+import Button from '@mui/material/Button'
+import './requestofadoption.css'
+import {deleteRequestForAdtion} from '../../../services/userdata'
 function AoptionReqToGetuserData({ id, onclick }) {
     const [name, setname] = useState('')
     const [img, setimg] = useState('')
@@ -82,11 +85,24 @@ function RequstOfAdoption({ user, id, handleError }) {
     }
     const go = useHistory()
     function handleGotoOthersProfiles(id = "") {
-        console.log(id)
-        return
         closeModal()
         go.push('/home/profile/' + id)
 
+    }
+    async function deleteRequst() {
+        try {
+            const res = await deleteRequestForAdtion(id, user.token, handleError)
+            if (res) {
+                alert('requst deleted')
+
+            }
+            closeModal()
+            window.location.reload()
+
+        } catch (error) {
+            closeModal()
+
+        }
     }
     return (
         <div>
@@ -105,8 +121,13 @@ function RequstOfAdoption({ user, id, handleError }) {
                     <div className='modal_body' >
                         {
                             arrOfAdoptions.map(item => (
-                                <AoptionReqToGetuserData id={item}
+                                <div className='request_body' >
+                                    <AoptionReqToGetuserData id={item}
                                     onclick={handleGotoOthersProfiles} />
+                                    <Button onClick = {deleteRequst} >
+                                        Delete
+                                    </Button>
+                                </div>
                             ))
                         }
                     </div>
