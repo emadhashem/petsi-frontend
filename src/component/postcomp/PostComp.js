@@ -7,7 +7,9 @@ import { downloadImg } from '../../services/firebaseStorage';
 import './poststyles.css'
 import AdoptionReq from '../profile/adoptionReq/AdoptionReq';
 import { useHistory } from 'react-router-dom';
-function PostComp({ postData, onclick = f => f, onAccept, onReject, hideModifi = false,
+import { connect } from 'react-redux';
+function PostComp({user,  postData, onclick = f => f, onAccept, onReject, 
+    hideModifi = false, hideDelete = false
 
 }) {
     const [ownerName, setownerName] = useState('')
@@ -33,6 +35,7 @@ function PostComp({ postData, onclick = f => f, onAccept, onReject, hideModifi =
     function handleError(response) {
         alert(response.data)
     }
+    
     async function getSomeImg(id, cb) {
         try {
             const res = await downloadImg(id)
@@ -56,7 +59,7 @@ function PostComp({ postData, onclick = f => f, onAccept, onReject, hideModifi =
                 <AdoptionReq name={ownerName} img={ownerImg}
                     onclick={handleGotoOthersProfiles} />
                 <div className='owner_delete' >
-                    <DeleteOutlineIcon onClick={() => onReject(postData._id)} />
+                    {(!hideDelete) && <DeleteOutlineIcon onClick={() => onReject(postData._id)} />}
                 </div>
             </div>
             <div className='text_div'
@@ -76,5 +79,5 @@ function PostComp({ postData, onclick = f => f, onAccept, onReject, hideModifi =
         </div>
     )
 }
-
-export default PostComp
+const mapStateToProps = ({user}) => ({user})
+export default connect(mapStateToProps)(PostComp)

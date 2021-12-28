@@ -45,7 +45,7 @@ export async function getUserData(userId, handleError) {
 const add_RequestForAdtion_api = prefixApi + 'api/post/update/addadoptrequest'
 export async function addRequestForAdtion(postId, token, handleError) {
     try {
-        const res = await axios.put(add_RequestForAdtion_api, {postId}, {
+        const res = await axios.put(add_RequestForAdtion_api, { postId }, {
             headers: {
                 'x-auth-token': token
             }
@@ -58,7 +58,34 @@ export async function addRequestForAdtion(postId, token, handleError) {
 const delete_RequestForAdtion_api = prefixApi + 'api/post/update/deleteadoptrequest'
 export async function deleteRequestForAdtion(postId, token, handleError) {
     try {
-        const res = await axios.put(delete_RequestForAdtion_api, {postId}, {
+        const res = await axios.put(delete_RequestForAdtion_api, { postId }, {
+            headers: {
+                'x-auth-token': token
+            }
+        })
+        return res.data
+    } catch (ex) {
+        handleError(ex.response)
+    }
+}
+const get_all_posts_home_api = prefixApi + 'api/user/getallposts'
+export async function getHomePosts(lstId, token, handleError) {
+    try {
+        const res = await axios.post(get_all_posts_home_api, { lstId }, {
+            headers: {
+                'x-auth-token': token
+            }
+        })
+        return res.data
+    } catch (ex) {
+        handleError(ex.response)
+    }
+}
+// 
+const get_post_api = prefixApi + 'api/post/getpostdata'
+export async function getONEPost(postId, token, handleError) {
+    try {
+        const res = await axios.post(get_post_api, { postId }, {
             headers: {
                 'x-auth-token': token
             }

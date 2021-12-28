@@ -128,7 +128,9 @@ export const AdminPage = ({ user }) => {
                         <PostComp
                             onAccept={onAccept}
                             onReject={onReject}
-                            postData={item} key={item._id} />
+                            postData={item} key={item._id}
+                            hideDelete = {false}
+                            />
                     ))
                 }
                 {
