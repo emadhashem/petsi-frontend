@@ -3,17 +3,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    
 }
 .adminpage_container > input {
     outline: none;
-    
 }
-.posts_container{
-
+.posts_container {
     width: 60%;
     display: flex;
     flex-direction: column;
     align-items: center;
     margin: auto;
+}
+.moewpost_ {
+    text-align: center;
+    font-size: large;
+    margin: 15px;
+    cursor: pointer;
 }

@@ -134,7 +134,7 @@ function RequstOfAdoption({ user, id, handleError }) {
                 </div>
             </Modal>
             <div>
-                <p onClick={() => setshowModalOfPost(true)} >
+                <p className='text_in_req_panel' onClick={() => setshowModalOfPost(true)} >
 
                     {text}
                 </p>

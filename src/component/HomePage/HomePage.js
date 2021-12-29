@@ -80,7 +80,9 @@ const HomePage = ({ user }) => {
                 }
                 {
                     (!noMore) && <div>
-                        <p onClick={getPosts} >More Posts{noMore}</p>
+                        <p onClick={getPosts}
+                        className='more_posts'
+                        >More Posts{noMore}</p>
                     </div>
                 }
                 {

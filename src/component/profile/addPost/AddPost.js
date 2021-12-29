@@ -90,6 +90,7 @@ const AddPost = ({ user, handleError }) => {
             <div className='input_description_container' >
                 <textarea
                     onChange={evnt => setpostDescription(evnt.target.value)}
+                    value={postDescription}
                     className='input_description' />
                 <div className='radio_continer' >
                     <div>

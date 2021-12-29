@@ -208,7 +208,7 @@ function Profile({ user }) {
             <div className='left_div' >
                 <div className='user_content' >
                     {
-                        (user.role == 'user') ? <img
+                        (user.role != 'user') ? <img
                             className='doctor_icon' src={doctorImg} /> : null
                     }
                     <p>{user.name}</p>
@@ -242,7 +242,7 @@ function Profile({ user }) {
                 }
                 {
                     (!noMore) && <div>
-                        <p onClick={handleGetPosts} > more  posts</p>
+                        <p onClick={handleGetPosts} className='text_in_req_panel' > more  posts</p>
                     </div>
                 }
             </div>
