@@ -1,23 +1,33 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700;800&display=swap');
 :root {
-   --primary-color: #007AF3;
+    --primary-color: #007AF3;
+    --secondary-color: #f2f2f2;
 }
-.Maincont{
-    background-color: #f8cfcf;
+
+.Maincont {
+    background-color: var(--secondary-color);
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: row;
     justify-content: center;
 }
-div.cont{
+
+div.contm {
     float: right;
     margin-top: 5em;
-    margin-right: 5%;
+    margin-right: 3%;
     margin-left: 0;
     text-align: center;
+    border-right: 1.6px solid var(--primary-color);
+    margin-bottom: 2em;
 }
-.emailInput{
+
+div.cont {
+    margin-right: 40px;
+}
+
+.emailInput {
     display: block;
     margin-top: .5em;
     margin-left: auto;
@@ -25,11 +35,12 @@ div.cont{
     border-width: .5px;
     border-radius: 1em;
     height: 3em;
-    width: 20em; 
-    padding: 5px; 
+    width: 20em;
+    padding: 5px;
     outline: none;
 }
-.passInput{
+
+.passInput {
     display: block;
     margin-top: .5em;
     margin-left: auto;
@@ -37,18 +48,21 @@ div.cont{
     border-width: .5px;
     border-radius: 1em;
     height: 3em;
-    width: 20em;   
-    padding: 5px; 
-    outline: none;   
+    width: 20em;
+    padding: 5px;
+    outline: none;
 }
-.lableandemail{
-    margin-top: 3em;
+
+.lableandemail {
+    margin-top: 1.5em;
 }
-.lableandpass{
+
+.lableandpass {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
 }
-.signButton{
+
+.signButton {
     margin-bottom: 1em;
     color: white;
     font-size: 1.4em;
@@ -59,67 +73,131 @@ div.cont{
     border-radius: 5em;
     cursor: pointer;
     text-align: center;
-}
-.regButton{
-    margin-bottom: 1em;
-    color: white;
-    font-size: 1.4em;
-    width: 5.5em;
-    height: 2.5em;
-    background-color: var(--primary-color);
-    border: 5px solid var(--primary-color);
-    border-radius: 5em;
-    text-align: center;
-    cursor: pointer;
-}
-.passLable{
-    font-size: 1.2em;
-    font-weight: 480;
-}
-.emailLable{
-    font-size: 1.2em;
-    font-weight: 480;
-}
-.petsiRound{
-    font-weight: bold;
-    color: black;
-    font-size: 3.5em;
 }
 
-.si{
-    font-size: .7em;
-    color:var(--primary-color)
+.regButton {
+    margin-bottom: 1em;
+    color: white;
+    font-size: 1.4em;
+    width: 5.5em;
+    height: 2.5em;
+    background-color: var(--primary-color);
+    border: 5px solid var(--primary-color);
+    border-radius: 5em;
+    text-align: center;
+    cursor: pointer;
 }
-.imageBox{   
+
+.passLable {
+    font-size: 1.2em;
+    font-weight: 480;
+}
+
+.emailLable {
+    font-size: 1.2em;
+    font-weight: 480;
+}
+
+.petsiRound {
+    font-weight: 900;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 2em;
+    line-height: 1.3em;
+}
+
+.peth {
+    margin-top: .1em;
+}
+
+.peth span {
+    color: var(--primary-color);
+}
+
+.imageBox {
     float: left;
-    display: grid;  
+    display: grid;
     width: 60%;
     margin-top: auto;
     margin-bottom: auto;
-    
 }
-.image{
-    width: 100%; 
-    border-radius: 0px 50px 50px 0px;
+
+.image {
+    width: 100%;
+    border-radius: 50px 50px 50px 50px;
 }
-.ourLable{
+
+.ourLable {
     margin-bottom: 1.5em;
     margin-right: 2em;
-    margin-top: 1.5em;
+    margin-top: 0em;
     text-align: center;
     text-transform: uppercase;
     font-weight: bold;
     color: gray;
     letter-spacing: .3em;
-    
 }
-   
+
+.progress_circle {
+    margin-bottom: 1em;
+}
+
 iframe {
     width: 100%;
     height: 300px;
 }
+
 @media only screen and (max-width: 800px) {
     .imageBox {
         display: none;
+    }
+    div.contm {
+        border-right: none;
+    }
+}
+
+@media only screen and ( max-width: 414px) {
+    div.contm {
+        margin-left: 10%;
+        margin-right: 0;
+    }
+}
+
+@media only screen and ( width: 320px) {
+    body {
+        width: 365.5px;
+        height: 120vh;
+    }
+    div.contm {
+        margin-left: 14%;
+        margin-right: 0;
+    }
+}
+
+@media only screen and ( max-width: 770px) {
+    div.contm {
+        margin-left: 5%;
+        margin-right: 0;
+    }
+}
+
+@media only screen and ( width: 1024px) and (height :1366px) {
+    div.contm {
+        margin-top: 15em;
+        margin-bottom: 38em;
+    }
+    .imageBox {
+        margin-top: 15em;
+    }
+}
+
+@media only screen and ( max-width: 930px) {
+    div.contm {
+        margin-left: 1%;
+        margin-right: 1;
+    }
+    .imageBox {
+        margin-top: 10em;
+        margin-right: 1%;
     }
 }

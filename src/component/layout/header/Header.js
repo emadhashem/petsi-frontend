@@ -3,7 +3,6 @@ import { connect, useDispatch } from 'react-redux'
 import './headerStyles.css'
 import { useHistory } from 'react-router-dom'
 import SearchBar from './searchbar/SearchBar'
-
 import * as userActions from '../../../redux/actions/userActions'
 
 
@@ -27,14 +26,15 @@ function Header({user}) {
             <div className="petsiRound_">
                 Pet<span className="si_">Si</span>
             </div>
-            <SearchBar />
+    
+            <SearchBar/>
             {
                 (user.id) && <p onClick={() => {
                     go.push('/home/profile/'+user.id)
-                }} className='logout_holder'> {user.name} </p>
+                }} className='logout_holder'> <span className="name">{user.name}</span> </p>
             }
             {
-                (user.id) && <p onClick={logOut} className='logout_holder'> LOGOUT </p>
+                (user.id) && <p onClick={logOut} className='logout_holder'> <span className="logout">Logout</span> </p>
             }
             
         </div>

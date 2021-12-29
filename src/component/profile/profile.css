@@ -1,14 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700;800&display=swap');
+:root {
+   --primary-color: #007AF3;
+   --secondary-color:#f2f2f2;
+}
 .profile_container {
     width: 100%;
     display: flex;
     min-height: 90vh;
-    background-color: aqua;
+    background-color:var(--secondary-color) ;
     justify-content: space-between;
 }
 .left_div{
-
+    border-radius: 10px;
+    margin-left: .5em;
+    margin-top: .5em;
+    margin-bottom: .5em;
     width: 20%;
-    background-color: blueviolet;
+    background-color: var(--primary-color);
 }
 .user_content{
     text-align: center;
@@ -21,9 +29,32 @@
 
 }
 .user_content > p {
-    font-size: 20px;
-    margin: 15px;
+    font-size: 15px;
+    margin-top: 5px;
+    color: black
 }
+.user_content12{
+    width: 80%;
+    height:300px;
+    margin-top: 3em;
+    background-color:#006bd6;
+    border-radius: 1.5em;
+}
+.Avatar{
+    margin-top:-1.5em;
+    margin-left: 26%;
+    margin-right: 50%;
+    border: 5px solid #006bd6;
+    border-radius: 50%;
+}
+.user_content .UserName{
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-weight: bold;
+    font-size: 2em;
+}
+
+
 .doctor_icon{
     width: 20px;
     height: 20px;
@@ -33,9 +64,12 @@
     width: 50%;
 }
 .right_div{
-
+    border-radius: 10px;
+    margin-left: .5em;
+    margin-top: .5em;
+    margin-bottom: .5em;
     width: 20%;
-    background-color: blueviolet;
+    background-color: var(--primary-color);
 
 }
 

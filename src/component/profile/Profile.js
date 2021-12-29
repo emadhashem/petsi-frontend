@@ -207,14 +207,16 @@ function Profile({ user }) {
             </Modal>
             <div className='left_div' >
                 <div className='user_content' >
-                    {
-                        (user.role != 'user') ? <img
-                            className='doctor_icon' src={doctorImg} /> : null
-                    }
-                    <p>{user.name}</p>
-                    <p>{user.email}</p>
-                    <Avatar src={user.img} sx={{ width: 100, height: 100 }} />
-                    <p>{user.phoneNumber}</p>
+                <div className='user_content12' >
+                        {
+                            (user.role != 'user') ? <img
+                                className='doctor_icon' src={doctorImg} /> : null
+                        }
+                        <Avatar src={user.img} sx={{ width: 100, height: 100 }} className="Avatar" />
+                        <p className="UserName">{user.name}</p>
+                        <p className="UserEmail">{user.email}</p>
+                        <p>{user.phoneNumber}</p>
+                    </div>
                 </div>
             </div>
             <div className='middle_div'>
