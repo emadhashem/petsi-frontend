@@ -28,10 +28,15 @@ function SignUp({user}) {
     return (
 
         <div className='singup_container' >
-            <div className='img_holder' >
-                <img src={dogImg} />
+            <div className='img_holder1' >
+                <div className='img_holder2' >
+                    <div className='img_holder3' >
+                        <img src={dogImg} />
+                    </div>
+                </div>
             </div>
             <div className='input_holder' >
+                <div className="Welcome"><h1>Sign Up</h1></div>
                 <input className='signup_input' type="text"
                     placeholder='UserName'
                     value={userName}
@@ -66,7 +71,7 @@ function SignUp({user}) {
                     </div>
                 </div>
                 <input type="button"
-                    onClick={handleSignUp} value="create acount" />
+                    onClick={handleSignUp} value="create" className="createAcc" />
             </div>
         </div>
     )

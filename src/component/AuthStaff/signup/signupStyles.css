@@ -1,7 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;400;700;800&display=swap');
+:root {
+    --primary-color: #007AF3;
+    --secondary-color: #f2f2f2;
+}
 .singup_container {
  width: 100%;
  height: 100vh;
- background-color: red; 
+ background-color: var(--secondary-color); 
  display: flex;  
  justify-content: center;
  align-items: center;
@@ -16,18 +21,69 @@
     padding: 5px;
 }
 .input_holder {
-
     width: 50%;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-.img_holder > img{
-
-    border-radius: 15px;
+.img_holder3 > img{
+    border-radius: 40em;
+    border:  solid 20px #006bd6;
 }
+.img_holder2{
+ width:35em;
+ height: 25em;
+ border:  solid 6px var(--primary-color);
+ background-color: var(--primary-color);
+ border-radius: 40em;
+ text-align: center;
+ padding-top: 1em;
+}
+.createAcc{
+    margin-bottom: 1em;
+    color: white;
+    font-size: 1.4em;
+    width: 5.5em;
+    height: 2.5em;
+    background-color: var(--primary-color);
+    border: 5px solid var(--primary-color);
+    border-radius: 5em;
+    text-align: center;
+    cursor: pointer;
+    margin-top: .5em;
+}
+
 .radio_btns_holder{
     display: flex;
     width: 50%;
     justify-content: space-around;
+}
+.Welcome{
+    margin-bottom: 50px;
+}
+iframe {
+    width: 100%;
+    height: 300px;
+}
+@media only screen and ( min-width: 360px) and (max-width:870px) {
+    .img_holder3 > img{
+        display: none;
+    }
+    .img_holder2 {
+    display: none;
+    }
+    .img_holder1{
+        display: none;
+    }
+}
+@media only screen and ( min-width: 200px) and (max-width:366px) {
+    .img_holder3 > img{
+        display: none;
+    }
+    .img_holder2 {
+    display: none;
+    }
+    .img_holder1{
+        display: none;
+    }
 }
