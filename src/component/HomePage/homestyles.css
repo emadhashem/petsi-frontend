@@ -17,4 +17,107 @@
     cursor: pointer;
     color: darkgreen;
 }
-  
+.NewPosts{
+    font-weight: bold;
+    margin-left: 23%;
+}
+iframe {
+    width: 100%;
+    height: 300px;
+}
+@media only screen and ( max-width: 414px) {
+    .home_container {
+        display: block;
+    }
+    .left_div {
+        width: 100%;
+        min-height: 40vh;
+        margin-right: 0;
+        margin-left: 0;
+        border-radius: 0;
+    }
+    
+    .right_div {
+        width: 100%;
+        min-height: 30vh;
+        margin-right: 0;
+        margin-left: 0;
+        border-radius: 0;
+    }
+    .middle_div {
+        width: 100%;
+        min-height: 60vh;
+        margin-right: 0;
+        margin-left: 0;
+        border-radius: 0;
+    }
+
+}
+
+@media only screen and ( max-width: 780px) and (min-width: 415px) {
+    .left_div {
+        width: 30%;
+    }
+    .right_div {
+        width: 30%;
+    }
+    .middle_div {
+        margin-top: 15em;
+    }
+
+}
+@media only screen and ( max-width: 1030px) and (min-width:780px) {
+    .left_div {
+        width: 30%;
+    }
+    .right_div {
+        width: 30%;
+    }
+    
+    .middle_div {
+        margin-top: 15em;
+    }
+   
+}
+
+@media only screen and ( min-width: 785px) and (max-width:1000px) {
+    .left_div {
+        width: 30%;
+    }
+    .right_div {
+        width: 30%;
+    }
+   
+    .middle_div {
+        margin-top: 5em;
+    }
+}
+
+@media only screen and ( min-width: 415px) and (max-width:780px) {
+    
+    .left_div {
+        width: 100%;
+        min-height: 25vh;
+        margin-right: 0;
+        margin-left: 0;
+        margin-top: -15em;
+        border-radius: 0;
+    }
+   
+    .right_div {
+        width: 100%;
+        min-height: 25vh;
+        margin-right: 0;
+        margin-left: 0;
+        border-radius: 0;
+    }
+    .middle_div {
+        width: 100%;
+        min-height: 40vh;
+        margin-top: -.1em;
+        margin-right: 0;
+        margin-left: 0;
+        border-radius: 0;
+    }
+
+}

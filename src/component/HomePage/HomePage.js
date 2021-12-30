@@ -87,7 +87,7 @@ const HomePage = ({ user }) => {
                 }
                 {
                     (noMore) && <div>
-                        <p  >NO More new Posts{noMore}</p>
+                        <p  classame="NewPosts">No More new Posts{noMore}</p>
                     </div>
                 }
             </div>
