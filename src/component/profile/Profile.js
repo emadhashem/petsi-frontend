@@ -239,7 +239,7 @@ function Profile({ user }) {
                 }
                 {
                     (noMore) && <div>
-                        <p>NO more upcoming posts</p>
+                        <p className="upcomingPosts">No more upcoming posts</p>
                     </div>
                 }
                 {

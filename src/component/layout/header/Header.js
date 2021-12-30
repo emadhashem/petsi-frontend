@@ -31,7 +31,7 @@ function Header({user}) {
             {
                 (user.id) && <p onClick={() => {
                     go.push('/home/profile/'+user.id)
-                }} className='logout_holder'> <span className="name">{user.name}</span> </p>
+                }} className='logout_holder'> <span className="name"> {user.name} </span> </p>
             }
             {
                 (user.id) && <p onClick={logOut} className='logout_holder'> <span className="logout">Logout</span> </p>

@@ -16,3 +16,22 @@
     background-color: transparent;
     
 }
+@media only screen and ( max-width: 414px) {
+    .input_search{
+        width: 20%;
+        height: 30px;
+        border-radius: 0px;
+        outline: none;
+        border: 0;
+        padding: 1px;
+        background-color: transparent;
+        
+    }
+    .searchbar_container{
+    min-width: 10%;
+    border-bottom: 1.5px solid var(--primary-color);
+}
+@media only screen and ( max-width: 540px) {
+    .input_search{ height: 10px;}
+}
+}

@@ -91,7 +91,7 @@ const AddPost = ({ user, handleError }) => {
                 <textarea
                     onChange={evnt => setpostDescription(evnt.target.value)}
                     value={postDescription}
-                    className='input_description' />
+                    className='input_description' placeholder="Enter Your Descrbtion..."/>
                 <div className='radio_continer' >
                     <div>
                         <label htmlFor='dog'>DOG</label>
@@ -145,7 +145,7 @@ const AddPost = ({ user, handleError }) => {
                     )
                 }
                 {(!postUpload && !loadUploadImg) && <div className='add_post_btn_container' >
-                    <p onClick={handleAddPost} >AddPost  </p><PetsIcon />
+                    <p onClick={handleAddPost} >Add</p><PetsIcon />
                 </div>}
             </div>
         </div>

@@ -37,3 +37,41 @@
     font-size: .7em;
     color: var(--primary-color)
 }
+@media only screen and (max-width: 800px) {
+   
+}
+
+@media only screen and ( max-width: 414px) {
+    .si_ {
+        font-size: .6em;
+        color: var(--primary-color);
+       
+    }
+    .petsiRound_ {
+        margin-right:30px
+    }
+    
+    .name{
+        display :none;
+    }
+    .logout_holder {
+        margin-right: 5%;
+    }
+    
+}
+
+@media only screen and ( width: 320px) {
+
+}
+
+@media only screen and ( max-width: 770px) {
+   
+}
+
+@media only screen and ( width: 1024px) and (height :1366px) {
+   
+}
+
+@media only screen and ( max-width: 930px) {
+    
+}
